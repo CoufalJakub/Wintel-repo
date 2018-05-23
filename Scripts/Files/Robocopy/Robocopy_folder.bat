@@ -1,0 +1,1 @@
+for /f %%a in (servers.txt) do robocopy.exe "C:\Exploit\Cleandrive" "\\%%a\C$\Exploit\Cleandrive" /r:1 /w:1 /log+:"results.txt"
