@@ -1,4 +1,5 @@
 #Deletes snapshots based on user input, with maximum running tasks at once(default 7)
+#Remove all comments if run in POWERCLI
 
 Get-Module -Name VMware* -ListAvailable | Import-Module
 
