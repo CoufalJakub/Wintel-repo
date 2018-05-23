@@ -1,4 +1,5 @@
 #Queries snapshots based on name from user input
+#Remove all comments if run in POWERCLI
 
 Get-Module -Name VMware* -ListAvailable | Import-Module
 

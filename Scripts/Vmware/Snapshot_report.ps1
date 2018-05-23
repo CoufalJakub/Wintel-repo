@@ -1,4 +1,5 @@
 #Makes list of all snapshots
+#Remove all comments if run in POWERCLI
 Get-Module -Name VMware* -ListAvailable | Import-Module
 
 Connect-VIServer localhost

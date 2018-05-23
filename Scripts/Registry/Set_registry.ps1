@@ -6,6 +6,6 @@ foreach ($server in $servers){
     $Registry = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey(‘LocalMachine’, $server)
     #Path to adjacent key
     $Key= $Registry.CreateSubKey("SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING")
-    #Use "String" "QWord" "Binary" instead of "DWORD"
+    #Use "String" "QWord" "Binary" "DWORD"
     $Key.Setvalue(‘iexplore.exe’, ‘1’, ‘DWORD’)
 }
