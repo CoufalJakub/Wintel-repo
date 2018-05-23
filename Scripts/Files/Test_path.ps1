@@ -1,3 +1,4 @@
+#Tests if path/folder exists
 $servers = gc servers.txt
 
 @(

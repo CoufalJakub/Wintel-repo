@@ -1,0 +1,2 @@
+# Query status of 1 service on multiple computers
+gwmi win32_service -comp (gc .\servers.txt) -filter "state='running' and name like '%SepMasterService%'" | select __server,name,startmode,state,status | export-csv .\servers.csv 
