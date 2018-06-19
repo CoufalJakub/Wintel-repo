@@ -5,7 +5,7 @@ Connect-VIServer localhost
 
 $maxtasks = 5
 $days = 3
-$CommonName = "ASD"
+$CommonName = "SnapDel"
 
 
 $snapshots = "*" + $CommonName + "*"
