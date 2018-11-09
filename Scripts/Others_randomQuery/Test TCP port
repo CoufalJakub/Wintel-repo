@@ -1,0 +1,28 @@
+function Test-Port($hostname, $port)
+{
+
+    try{
+        $ip = [System.Net.Dns]::GetHostAddresses($hostname) | select-object IPAddressToString -expandproperty  IPAddressToString
+    }catch{}
+        $connection = New-Object Net.Sockets.TcpClient
+    try{
+        $connection.Connect($ip,$port)
+    }catch{}
+    if($connection.Connected){
+        $connection.Close()
+        $msg = "$hostname $port OPEN"
+    }
+    else{
+        $msg = "$hostname $port CLOSED"                                 
+    }
+    Write-Host $msg
+}
+
+$servers = get-content servers.txt
+$ports = 80, 445, 8530
+
+foreach($server in $servers){
+    foreach($port in $ports){
+        test-port $server $port
+    }
+}
