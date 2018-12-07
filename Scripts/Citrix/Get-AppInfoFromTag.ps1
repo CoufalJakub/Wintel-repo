@@ -78,7 +78,7 @@ foreach($server in $servers){
     $server1 = "*"+$server
     #Checks server for tags with "BT PUB"
     $tags = (get-brokermachine -machinename $server1).tags | Select-String -pattern "BT PUB"
-    #Removes BT PUB xxx to find application name
+    #Removes "BT PUB xxx" to find application name
     $tags = $tags -replace("BT PUB \w\w\w ","")
 
 
@@ -87,8 +87,8 @@ foreach($server in $servers){
         $Name = (Get-BrokerApplication -ApplicationName $tag).PublishedName
         $Exec = (Get-BrokerApplication -ApplicationName $tag).CommandLineExecutable
         $Users = (Get-BrokerApplication -ApplicationName $tag).AssociatedUserNames
-        #Removes domain from users/groups
-        $Users = $Users -replace("domain\\","")
+        #Removes "contoso\" domain from users/groups
+        $Users = $Users -replace("contoso\\","")
         
         #creates custom object for easier output
         $object = new-object psobject -property @{
