@@ -1,4 +1,4 @@
-# Load windows forms for sending keyboard presses
+#Script presses F13 every 2minutes for 12hours to disable locking of windows
 $Null = [System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms')
 $allowclose = (get-date).touniversaltime().addhours(12)
 while($allowclose -gt (get-date).touniversaltime()){
